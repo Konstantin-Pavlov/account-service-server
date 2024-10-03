@@ -1,13 +1,11 @@
-package io.client.accountserviceclient.service;
+package io.server.accountserviceserver.service;
 
-import io.client.accountserviceclient.entity.Account;
+import io.server.accountserviceserver.entity.Account;
 
 import java.util.List;
 
 public interface AccountService {
     public long countAccounts();
-
-    void generateAccounts(int accountsToGenerate);
 
     List<Account> getAccounts();
 }

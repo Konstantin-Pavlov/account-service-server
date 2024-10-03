@@ -1,6 +1,6 @@
-package io.client.accountserviceclient.repository;
+package io.server.accountserviceserver.repository;
 
-import io.client.accountserviceclient.entity.Account;
+import io.server.accountserviceserver.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {

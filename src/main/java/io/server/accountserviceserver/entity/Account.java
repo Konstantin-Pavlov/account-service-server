@@ -1,4 +1,4 @@
-package io.client.accountserviceclient.entity;
+package io.server.accountserviceserver.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
