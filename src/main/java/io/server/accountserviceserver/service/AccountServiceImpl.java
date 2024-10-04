@@ -1,9 +1,8 @@
 package io.server.accountserviceserver.service;
 
-import io.server.accountserviceserver.exception.AccountNotFoundException;
 import io.server.accountserviceserver.entity.Account;
+import io.server.accountserviceserver.exception.AccountNotFoundException;
 import io.server.accountserviceserver.repository.AccountRepository;
-import io.server.accountserviceserver.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,14 +20,14 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account getAccountById(Integer accountId) {
         Account account = accountRepository.findById(accountId).orElseThrow(
-                        () -> {
-                            log.warn(String.format("account with id %d not found", accountId));
-                            return new AccountNotFoundException(
-                                    String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, accountId)
-                            );
-                        }
-                );
-        log.info(String.format("account with id %d and balance %s found",accountId, account.getBalance()));
+                () -> {
+                    log.warn(String.format("account with id %d not found", accountId));
+                    return new AccountNotFoundException(
+                            String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, accountId)
+                    );
+                }
+        );
+        log.info(String.format("account with id %d and balance %s found", accountId, account.getBalance()));
         return account;
     }
 

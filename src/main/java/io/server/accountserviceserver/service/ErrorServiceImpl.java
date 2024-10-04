@@ -2,10 +2,8 @@ package io.server.accountserviceserver.service;
 
 
 import io.server.accountserviceserver.exception.ErrorResponseBody;
-import io.server.accountserviceserver.service.ErrorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
@@ -29,7 +27,6 @@ public class ErrorServiceImpl implements ErrorService {
                 .reasons(Map.of("errors", List.of(message)))
                 .build();
     }
-
 
 
     @Override

@@ -26,20 +26,18 @@ class AccountServiceControllerTest {
     AccountService accountService;
     @InjectMocks
     AccountServiceController accountServiceController;
-    private AutoCloseable closeable;
+
     private Account account;
     private static final String ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE = "Account with id %d not found";
 
 
     @BeforeEach
     void setUp() {
-//        closeable = MockitoAnnotations.openMocks(this);
         account = new Account(1, BigDecimal.valueOf(10), LocalDateTime.now());
     }
 
     @AfterEach
-    void tearDown() throws Exception {
-//        closeable.close();
+    void tearDown() {
     }
 
     @Test
@@ -52,7 +50,7 @@ class AccountServiceControllerTest {
     }
 
     @Test
-    void getAmount() throws Exception {
+    void getAmount() {
         Mockito.when(accountService.getAccountById(1)).thenReturn(account);
         Account accountById = accountService.getAccountById(1);
         Assertions.assertEquals(account.getBalance(), accountById.getBalance());
@@ -82,9 +80,7 @@ class AccountServiceControllerTest {
                 String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, 2)
         ));
 
-        Exception exception = Assertions.assertThrows(AccountNotFoundException.class, () -> {
-            accountServiceController.getAmount(2);
-        });
+        Exception exception = Assertions.assertThrows(AccountNotFoundException.class, () -> accountServiceController.getAmount(2));
 
         Assertions.assertEquals(String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, 2), exception.getMessage());
     }
@@ -100,9 +96,7 @@ class AccountServiceControllerTest {
                         String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, 2)
                 ));
 
-        Exception exception = Assertions.assertThrows(AccountNotFoundException.class, () -> {
-            accountServiceController.addAmount(request);
-        });
+        Exception exception = Assertions.assertThrows(AccountNotFoundException.class, () -> accountServiceController.addAmount(request));
 
         Assertions.assertEquals(String.format(ACCOUNT_NOT_FOUND_EXCEPTION_MESSAGE, 2), exception.getMessage());
     }
