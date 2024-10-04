@@ -1,6 +1,6 @@
-package io.server.accountserviceserver.service.impl;
+package io.server.accountserviceserver.service;
 
-import io.server.accountserviceserver.AccountNotFoundException;
+import io.server.accountserviceserver.exception.AccountNotFoundException;
 import io.server.accountserviceserver.entity.Account;
 import io.server.accountserviceserver.repository.AccountRepository;
 import io.server.accountserviceserver.service.AccountService;

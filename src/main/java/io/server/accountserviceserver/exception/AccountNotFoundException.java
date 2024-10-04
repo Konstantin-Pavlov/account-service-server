@@ -1,4 +1,4 @@
-package io.server.accountserviceserver;
+package io.server.accountserviceserver.exception;
 
 public class AccountNotFoundException extends RuntimeException {
     public AccountNotFoundException(String message) {
