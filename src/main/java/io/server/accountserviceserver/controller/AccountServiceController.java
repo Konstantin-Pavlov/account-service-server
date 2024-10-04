@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("account-service")
@@ -20,7 +22,7 @@ public class AccountServiceController {
     private final AccountService accountService;
 
     @GetMapping("get-amount/{account_id}")
-    public int getAmount(@PathVariable Integer account_id) {
+    public BigDecimal getAmount(@PathVariable Integer account_id) {
         Account account = accountService.getAccountById(account_id);
         return account.getBalance();
     }

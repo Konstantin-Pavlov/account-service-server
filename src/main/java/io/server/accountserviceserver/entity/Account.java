@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,7 +28,8 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer balance;
+    @Column(precision = 20, scale = 2)
+    private BigDecimal balance;
 
     @Column(name = "last_updated")
     private LocalDateTime lastUpdated;
