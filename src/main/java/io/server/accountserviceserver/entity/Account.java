@@ -1,5 +1,6 @@
 package io.server.accountserviceserver.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,9 +22,13 @@ import java.time.LocalDateTime;
 @With
 @Builder
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Integer balance;
+
+    @Column(name = "last_updated")
     private LocalDateTime lastUpdated;
 }

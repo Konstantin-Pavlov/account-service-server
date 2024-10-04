@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Modifying
     @Transactional
-    @Query("UPDATE Account a SET a.balance = a.balance + :amount WHERE a.id = :accountId")
+    @Query("UPDATE Account a " +
+            "SET a.balance = a.balance + :amount, a.lastUpdated = CURRENT_TIMESTAMP " +
+            "WHERE a.id = :accountId")
     int updateBalance(@Param("accountId") Integer accountId, @Param("amount") Integer amount);
 }
 
