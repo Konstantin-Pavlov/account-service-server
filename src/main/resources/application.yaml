@@ -16,6 +16,12 @@ spring:
         show-sql: true
         format_sql: true
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
   output:
     ansi:
       enabled: always
@@ -32,6 +38,13 @@ logging:
 
   file:
     name: logs/spring.log
+
+queue:
+  name: firstQueue
+  request:
+    name: get-amount-request-queue
+  response:
+    name: get-amount-response-queue
 
 server:
   port: 8072
