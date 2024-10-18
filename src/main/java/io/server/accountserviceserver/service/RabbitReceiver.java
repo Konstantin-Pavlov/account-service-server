@@ -21,10 +21,10 @@ public class RabbitReceiver {
     private final ObjectMapper objectMapper;
 
     //    @RabbitListener(queues = "${queue.name}")
-    @RabbitListener(queues = {"${queue.name}", "secondQueue", "hello"})
-    public void receive(String message) {
-        log.info("Received message '{}'", message);
-    }
+//    @RabbitListener(queues = {"${queue.name}", "secondQueue", "hello"})
+//    public void receive(String message) {
+//        log.info("Received message '{}'", message);
+//    }
 
     @RabbitListener(queues = "${queue.request.name}")
     public BigDecimal handleGetAmountRequest(Integer accountId) {
